@@ -18,6 +18,26 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppInviteViewController : UITableViewController
+#import <FBSDKCoreKit/FBSDKCopying.h>
+
+/**
+ * A container of textures for a camera effect.
+ * A texture for a camera effect is an UIImages identified by a NSString key.
+ */
+@interface FBSDKCameraEffectTextures : NSObject <FBSDKCopying, NSSecureCoding>
+
+/**
+ Sets the image for a texture key.
+ - Parameter image: The UIImage for the texture
+ - Parameter name: The key for the texture
+ */
+- (void)setImage:(UIImage *)image forKey:(NSString *)key;
+
+/**
+ Gets the image for a texture key.
+ - Parameter name: The key for the texture
+ - Returns: The texture UIImage or nil
+ */
+- (UIImage *)imageForKey:(NSString *)key;
 
 @end
